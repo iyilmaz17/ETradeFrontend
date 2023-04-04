@@ -1,6 +1,35 @@
-<table class="table">
-    <tr *ngFor="let product of products">
-        <td>{{product.productId}}</td>
-        <td>{{product.productName}}</td>
-    </tr>
-</table>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>ÜrünKodu</th>
+          <th>Ürün Adı</th>
+          <th>Barkod</th>
+          <th>Fiyat</th>
+          <th>Kdv'li fiyat</th>
+          <th>Eklenme Tarihi</th>
+          <th>Stok</th>
+          <th>Marka</th>
+          <th>Durumu</th>
+          <th>Kategori</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.productCode}}</td>
+          <td>{{product.productName}}</td>
+          <td>{{product.barcode}}</td>
+          <td>{{product.unitPrice}}</td>
+          <td>{{product.taxRate}}</td>
+          <td>{{product.addedDate}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.status}}</td>
+         <!--  <td>{{product.description}}</td> -->
+          <!-- <td>{{product.image}}</td> -->
+          <td>{{product.categoryId}}</td>
+        </tr>
+      </tbody>
+    </table>

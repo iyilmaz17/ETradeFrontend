@@ -1,16 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
+import { ProductResponseModel } from 'src/app/models/produtcResponseModel';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
+  products: Product[] = [];
 
-  product1: any = { productId: 1, productName: 'Rampge kb-r96' };
-  product2: any = { productId: 2, productName: 'Mouse ' };
-  product3: any = { productId: 3, productName: 'Lenovo L340' };
-  product4: any = { productId: 4, productName: 'Kalemlik' };
-  product5: any = { productId: 5, productName: 'Gözlük' };
-  products = [this.product1, this.product2, this.product3, this.product4, this.product5]
+  constructor(private productService: ProductService) {}
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productService.getProducts().subscribe((response) => {
+      this.products = response.data;
+    });
+  }
 }
+
+/*
+product1 = {ProductId:1,
+    ProductCode:'2',
+    ProductName:'sdaf',
+    Barcode:'12313',
+    UnitPrice:654,
+    TaxRate:564,
+    AddedDate:'',
+    Stock:4,
+    Brand:'sdv',
+    Status:true,
+    Description:'',
+    Image:'fs',
+    CategoryId:1
+  };
+
+*/
