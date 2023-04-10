@@ -1,7 +1,7 @@
-export interface Category{
-    Id:number;
-    CategoryName1:string;
-    CategoryName2:string;
-    CategoryName3:string;
-    CategoryName4:string;
+export interface Category {
+  id: number;
+  categoryName: string;
+  categoryName2: string;
+  categoryName3: string;
+  categoryName4: string;
 }

@@ -1,24 +1,11 @@
 <ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-  </ul>
-
-  <table >
-    <tr *ngFor="let ca of category">
-      <td>{{ca.Id}}</td>
-      <td>{{ca.CategoryName1}}</td>
-      <td>{{ca.CategoryName2}}</td>
-      <td>{{ca.CategoryName3}}</td>
-      <td>{{ca.CategoryName4}}28</td>
-
-      <tr *ngFor="let ca of category">
-        <td>{{ ca.Id }}</td>
-        <td>{{ ca.CategoryName1 }}</td>
-        <td>{{ ca.CategoryName2 }}</td>
-        <td>{{ ca.CategoryName3}}</td>
-        <td>{{ ca.CategoryName4 }}</td>
-      </tr>
-  </table>
+  <li routerLink="/products">Tüm ürünler</li>
+  <li
+    (click)="setCurrentCategory(category)"
+    routerLink="/products/category/{{category.id}}"
+    *ngFor="let category of categories"
+    [class]="getCurrentCategoryClass(category)"
+  >
+    {{ category.categoryName2 }}
+  </li>
+</ul>
