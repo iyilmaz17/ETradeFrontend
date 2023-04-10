@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Üye ekle</h5>
+            </div>
+            <div class="card-body">
+                <form form *ngIf="userAddForm"  >
+                    <div class="mb-3">
+                        <label>Ad</label>
+                        <div class="form-group">
+                            <input type="text" id="userName" formControlName="userName" class="form-control"
+                                placeholder="*">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Soyad</label>
+                        <div class="form-group">
+                            <input type="text" id="lastName" formControlName="lastName" class="form-control"
+                                placeholder="*">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Şifre</label>
+                        <div class="form-group">
+                            <input type="text" id="password" formControlName="password" class="form-control"
+                                placeholder="*">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <div class="form-group">
+                            <input type="text" id="email" formControlName="email" class="form-control" placeholder="*">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>
