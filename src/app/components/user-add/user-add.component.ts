@@ -15,18 +15,20 @@ export class UserAddComponent implements OnInit {
   userAddForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createUserAddForm();
+  }
 
   createUserAddForm() {
     this.userAddForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
   add(){
-    let userModel=Object.assign({},this.userAddForm.value) 
-    console.log(userModel)
+    let userModel = Object.assign({},this.userAddForm.value)
+        
   }
 }
