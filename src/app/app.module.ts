@@ -6,36 +6,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product/product.component';
-import { CategoryComponent } from './components/category/category.component';
-import { NaviComponent } from './components/navi/navi.component';
+import { ProductComponent } from './interfaceTemplates/user/components/product/product.component';
+import { CategoryComponent } from './interfaceTemplates/user/components/category/category.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-import { UserAddComponent } from './components/user-add/user-add.component';
 
 import { ToastrModule } from 'ngx-toastr';
-import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { ProductAddComponent } from './components/product-add/product-add.component';
-import { LoginComponent } from './components/login/login.component';
-import { TestComponent } from './components/test/test.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AdminModule } from './interfaceTemplates/admin/admin.module';
+import { UserModule } from './interfaceTemplates/user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    CategoryComponent,
-    NaviComponent,
     VatAddedPipe,
     FilterPipePipe,
-    CartSummaryComponent,
-    UserAddComponent,
-    ProductAddComponent,
-    LoginComponent,
-    TestComponent,
   ],
   imports: [
     BrowserModule,
+    AdminModule,
+    UserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

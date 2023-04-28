@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductComponent } from './components/product/product.component';
-import { CategoryComponent } from './components/category/category.component';
-import { UserAddComponent } from './components/user-add/user-add.component';
-import { ProductAddComponent } from './components/product-add/product-add.component';
-import { LoginComponent } from './components/login/login.component';
+import { ProductComponent } from './interfaceTemplates/user/components/product/product.component';
+import { CategoryComponent } from './interfaceTemplates/user/components/category/category.component';
 import { LoginGuard } from './guards/login.guard';
+import { DashboardComponent } from './interfaceTemplates/admin/components/dashboard/dashboard.component';
+import { LayoutComponent } from './interfaceTemplates/admin/layout/layout.component';
+import { DashboardModule } from './interfaceTemplates/admin/components/dashboard/dashboard.module';
 
 const routes: Routes = [
+  {
+    path: "admin", component: LayoutComponent, children: [
+      { path: "", component: DashboardComponent },
+      {path:'dashboard',loadChildren:()=>import("./interfaceTemplates/admin/components/dashboard/dashboard.module").then(module=>DashboardModule)},
+      { path: "customers", loadChildren: () => import("./interfaceTemplates/admin/components/customer/customer.module").then(module => module.CustomerModule) }
+    ]
+  },
   { path: '', component: ProductComponent },
-  { path: 'products', component: ProductComponent },
-  { path: 'products/category/:categoryId', component: ProductComponent },
-  { path: 'user/add', component: UserAddComponent },
-  { path: 'product/add', component: ProductAddComponent,canActivate:[LoginGuard] },
-  { path: 'login', component: LoginComponent },
-  //{path: 'category',component: CategoryComponent},
+  {path:'category',loadChildren:()=>import('./interfaceTemplates/user/components/category/category.module').then(module=>module.CategoryModule)}
+  //{ path: 'products', component: ProductComponent },
 ];
 
 @NgModule({
