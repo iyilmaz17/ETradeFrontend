@@ -1,0 +1,44 @@
+<div *ngIf="dataLoaded==false" class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div *ngIf="filterText.length>2" class="alert alert-success">
+  {{filterText}} Aradınız
+  </div>
+  <table *ngIf="dataLoaded==true" class="table">
+    <thead *ngIf="dataLoaded==true">
+      <tr>
+        <th>Id</th>
+        <th>ÜrünKodu</th>
+        <th>Ürün Adı</th>
+        <th>Barkod</th>
+        <th>Fiyat</th>
+        <th>Kdv Oranı</th>
+        <th>Kdv'li Fiyat</th>
+        <th>Eklenme Tarihi</th>
+        <th>Stok</th>
+        <th>Marka</th>
+        <th>Durumu</th>
+        <th>Kategori</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products " >
+        <td>{{product.id}}</td>
+        <td>{{product.productCode}}</td>
+        <td>{{product.productName|uppercase }}</td>
+        <td>{{product.barcode}}</td>
+        <td>{{product.unitPrice}}</td>
+        <td>{{product.taxRate}}</td>
+        <td>{{product.unitPrice | currency}} </td>
+        <td>{{product.addedDate}}</td>
+        <td>{{product.stock}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.status}}</td>
+        <!--  <td>{{product.description}}</td> -->
+        <!-- <td>{{product.image}}</td> -->
+        <td>{{product.categoryId}}</td>
+        <td><button (click)="addToCart(product)" class="btn btn-success">Sepete Ekle</button></td>
+      </tr>
+    </tbody>
+  </table>

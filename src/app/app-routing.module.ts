@@ -12,7 +12,8 @@ const routes: Routes = [
     path: "admin", component: LayoutComponent, children: [
       { path: "", component: DashboardComponent },
       {path:'dashboard',loadChildren:()=>import("./interfaceTemplates/admin/components/dashboard/dashboard.module").then(module=>DashboardModule)},
-      { path: "customers", loadChildren: () => import("./interfaceTemplates/admin/components/customer/customer.module").then(module => module.CustomerModule) }
+      { path: "customers", loadChildren: () => import("./interfaceTemplates/admin/components/customer/customer.module").then(module => module.CustomerModule) },
+      { path: "tests", loadChildren: () => import("./interfaceTemplates/admin/components/test/test.module").then(module => module.TestModule) }
     ]
   },
   { path: '', component: ProductComponent },
